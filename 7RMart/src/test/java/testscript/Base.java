@@ -50,7 +50,7 @@ public class Base {
 			throw new Exception("invalid browser");
 		}
 	
-		  //driver=new ChromeDriver();
+		
 		   driver.get(properties.getProperty("url"));
 		  driver.manage().window().maximize();
 		  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

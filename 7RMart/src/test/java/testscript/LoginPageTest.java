@@ -25,8 +25,7 @@ public class LoginPageTest extends Base {
 
   @Test(dataProvider = "credentials")
   public void verifyuserisabletologinvalidcredentials(String username,String password) throws IOException {
-	  //String username=ExcelUtilities.getStringName(1, 0,"Loginpage");
-	 // String password=ExcelUtilities.getStringName(1, 1,"Loginpage");
+	  
 	  LoginPage login=new LoginPage(driver);
 	  login.enterUsernameField(username);
 	  login.enterPasswordField(password);

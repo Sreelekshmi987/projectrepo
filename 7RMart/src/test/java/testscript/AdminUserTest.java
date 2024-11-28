@@ -33,13 +33,7 @@ public class AdminUserTest extends Base {
 	  admin.enterpasswordfield(password1);
 	  admin.clickusertypebutton();
 	  admin.clicksavebutton();
-	  /*AdminUserPage admin=new AdminUserPage(driver);
-	  admin.clickadminuserbutton();
-	  admin.clicknewbutton();
-	  admin.enterusernamefield(username1);
-	  admin.enterpasswordfield(password1);
-	  admin.clickusertypebutton();
-	  admin.clicksavebutton();*/
+	  
 	  
 	  boolean isAlertloaded=admin.isAlertload();
 	  assertTrue(isAlertloaded,Constant.ERRORMSG3);

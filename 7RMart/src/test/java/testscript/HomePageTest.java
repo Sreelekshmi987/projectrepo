@@ -18,10 +18,7 @@ public class HomePageTest extends Base {
 	  homepage=login.clickLoginButton();
 	  homepage.clickAdminButton();
 	  homepage.clickLogoutButton();
-	  /*login.clickLoginButton();
-	  HomePage home=new HomePage(driver);
-	  home.clickAdminButton();
-	  home.clickLogoutButton();*/
+	  
 	  
 	 assertEquals(driver.getTitle(),"Login | 7rmart supermarket","Logout Failed");
 	 
