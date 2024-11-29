@@ -10,4 +10,6 @@ public class Constant {
     public static final String ERRORMSG4="Result not found";
     public static final String ERRORMSG5="News not created successfully";
     public static final String ERRORMSG6="Table not displayed";
+    public static final String ERRORMSG7="not displayed alert";
+    public static final String MANGOIMAGE=System.getProperty("user.dir")+ "\\src\\test\\resources\\Mango.jpg";
 }

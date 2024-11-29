@@ -14,27 +14,33 @@ public class SearchSubcategory {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	@FindBy(xpath="//a[@class='btn btn-rounded btn-primary'] ")WebElement searchbutton;
+	
 	@FindBy(xpath="//select[@class='form-control selectpicker']")WebElement category;
 	@FindBy(xpath=" //input[@placeholder='Sub Category']")WebElement subcategory;
 	@FindBy(xpath=" //button[@type='submit']")WebElement search;
 	
-	public void clicksearchbutton()
-	{
-		searchbutton.click();
-	}
-	public void clickcategorybutton()
+	@FindBy(xpath="//table[@class='table table-bordered table-hover table-sm']/tbody/tr[1]/td[1]")WebElement searchresult;
+	
+	
+	public SearchSubcategory clickcategorybutton()
 	{
 		category.click();
 		Select select=new Select(category);
 		 select.selectByVisibleText("Vegetables");
+		return this;
 	}
-	public void entersubcategoryfield(String subcategoryfield)
+	public SearchSubcategory entersubcategoryfield(String subcategoryfield)
 	{
 		subcategory.sendKeys(subcategoryfield);
+		return this;
 	}
-	public void clicksearch()
+	public SearchSubcategory clicksearch()
 	{
 		search.click();
+		return this;
+	}
+	public boolean isResultload()
+	{
+		return searchresult.isDisplayed();
 	}
 }

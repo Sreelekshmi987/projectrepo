@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AddProductPage {
+public class ManageProductPage {
 public WebDriver driver;
-public AddProductPage(WebDriver driver)
+public ManageProductPage(WebDriver driver)
 {
     this.driver=driver;
     PageFactory.initElements(driver,this);
 }
-@FindBy(xpath="//p[text()='Manage Product']")WebElement manageproduct;
+
 @FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newbutton;
 @FindBy(xpath="//input[@id='title']")WebElement title;
 @FindBy(xpath="//input[@value='Veg']")WebElement producttype;
@@ -26,52 +26,67 @@ public AddProductPage(WebDriver driver)
 @FindBy(xpath="//input[@name='w_stock']")WebElement stockavailability;
 @FindBy(xpath="//button[@class='btn btn-danger']")WebElement save;
 
-public void clickmanageproductbutton() {
-	manageproduct.click();
-}
-public void clicknewbutton()
+@FindBy(xpath="//i[@class='icon fas fa-check']")WebElement alert;
+
+
+public ManageProductPage clicknewbutton()
 {
 	newbutton.click();
+	return this;
 }
-public void entertitlefield(String titlefield)
+public ManageProductPage entertitlefield(String titlefield)
 {
 	title.sendKeys(titlefield);
+	return this;
 }
-public void clickproducttype()
+public ManageProductPage clickproducttype()
 {
   producttype.click();
   producttype.isSelected();
+   return this;
 }
-public void clickcategorybutton() {
+public ManageProductPage clickcategorybutton() {
 	category.click();
+	return this;
 }
-public void clicksubcategory() {
+public ManageProductPage clicksubcategory() {
 	subcategory.click();
+	return this;
 }
-public void clickpricetype()
+public ManageProductPage clickpricetype()
 {
     pricetype.click();
     pricetype.isSelected();
+	return this;
 }
-public void enterweightvalue(String weightvaluefield)
+public ManageProductPage enterweightvalue(String weightvaluefield)
 {
-	weightvalue.sendKeys(weightvaluefield);	
+	weightvalue.sendKeys(weightvaluefield);
+	return this;	
 }
-public void enterweightunit(String weightunitfield) {
+public ManageProductPage enterweightunit(String weightunitfield) {
 	weightunit.sendKeys(weightunitfield);
+	return this;
 }
-public void entermaxquantity(String maxquantityfield) {
+public ManageProductPage entermaxquantity(String maxquantityfield) {
 	maxquantity.sendKeys(maxquantityfield);
+	return this;
 }
-public void enterprice(String pricefield) {
+public ManageProductPage enterprice(String pricefield) {
 	price.sendKeys(pricefield);
+	return this;
 }
-public void enterstockavailability(String stockavailabilityfield) {
+public ManageProductPage enterstockavailability(String stockavailabilityfield) {
 	stockavailability.sendKeys(stockavailabilityfield);
+	return this;
 }
-public void clicksavebutton()
+public ManageProductPage clicksavebutton()
 {
 	save.click();
+	return this;
 
+}
+public boolean isAlertload() {
+	return alert.isDisplayed();
 }
 }

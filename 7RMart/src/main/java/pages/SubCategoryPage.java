@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import constant.Constant;
+import utilities.FileUploadUtility;
 import utilities.PageUtilities;
 
 public class SubCategoryPage {
@@ -15,34 +17,45 @@ public SubCategoryPage(WebDriver driver)
    this.driver=driver;
    PageFactory.initElements(driver,this);
 }
-@FindBy(xpath="//p[text()='Sub Category']")WebElement subcategorybutton;
+
 @FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newbutton;
 @FindBy(xpath="//select[@class='form-control selectpicker']")WebElement selectcategory;
 @FindBy(xpath="//input[@id='subcategory']")WebElement subcategory;
 @FindBy(xpath="//input[@name='main_img']")WebElement image;
+@FindBy(xpath="//button[@name='create']")WebElement save;
+
+@FindBy(xpath="//i[@class='icon fas fa-check']")WebElement alert;
 
 
-public void clicksubcategorybutton()
+
+public SubCategoryPage clicknewbutton() 
 {
-	subcategorybutton.click();
+	newbutton.click();
+	return this;	
 }
-public void clicknewbutton() 
-{
-	newbutton.click();	
-}
-public void clickcategorybutton()
+public SearchSubcategory clickcategorybutton()
 {
 	PageUtilities page=new PageUtilities();
 	page.selectByVisibletext(selectcategory, "mango");
 	selectcategory.click();
+	return new SearchSubcategory(driver) ;
 	
 }
-public void entersubcategory(String subcategoryfield)
+public SubCategoryPage entersubcategory(String subcategoryfield)
 {
 	subcategory.sendKeys(subcategoryfield);
+	return this;
 }
-public void clickimage()
+public void imagefileupload() {
+	FileUploadUtility fileupload=new FileUploadUtility();
+	fileupload.sendkeysFileUpload(image, Constant.MANGOIMAGE);
+	}
+public SubCategoryPage clicksavebutton()
 {
-	image.click();
+	save.click();
+	return this;
+} 
+public boolean isAlertload() {
+	return alert.isDisplayed();
 }
 }

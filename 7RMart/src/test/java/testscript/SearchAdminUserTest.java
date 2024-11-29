@@ -19,7 +19,7 @@ public class SearchAdminUserTest extends Base
 	SearchAdminUser search;
   @Test
   public void verifyuserisabletosearchadminuser() throws IOException {
-String username=ExcelUtilities.getStringName(1, 0,"Loginpage");
+      String username=ExcelUtilities.getStringName(1, 0,"Loginpage");
 	  String password=ExcelUtilities.getStringName(1, 1,"Loginpage");
 	  
 	  admin=home.clickadminuserbutton();

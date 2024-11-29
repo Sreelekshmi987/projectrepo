@@ -37,10 +37,10 @@ public class LoginPageTest extends Base {
   @Test
   @Parameters({"username","password"})
  
-  public void verifyuserisabletologininvalidusername() {
+  public void verifyuserisabletologininvalidusername(String username,String password) {
 	  LoginPage login1=new LoginPage(driver);
-	  login1.enterUsernameField("admin1#");
-	  login1.enterPasswordField("admin");
+	  login1.enterUsernameField(username);
+	  login1.enterPasswordField(password);
 	  login1.clickLoginButton();
 	  
 	  boolean isAlertloaded=login1.isAlertload();

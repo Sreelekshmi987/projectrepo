@@ -15,29 +15,27 @@ public ManageNewsPage(WebDriver driver)
     this.driver=driver;
     PageFactory.initElements(driver,this);
 }
-@FindBy(xpath="//p[text()='Manage News']")WebElement managenewsbutton;
+
 @FindBy(xpath="//a[@class='btn btn-rounded btn-danger']")WebElement newbutton;
 @FindBy(xpath="//textarea[@placeholder='Enter the news']")WebElement enternews;
 @FindBy(xpath="//button[@type='submit']")WebElement save;
 
 @FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
-public void clickmanagenewsbutton()
+
+public ManageNewsPage clicknewbutton()
 {
-	WaitUtility wait=new WaitUtility();
-	wait.waitForVisibilityOfElementLocated(driver,managenewsbutton);
-	managenewsbutton.click();
+	newbutton.click();
+	return this;	
 }
-public void clicknewbutton()
+public ManageNewsPage enternewsfield(String newsfield)
 {
-	newbutton.click();	
+	enternews.sendKeys(newsfield);
+	return this;	
 }
-public void enternewsfield(String newsfield)
+public ManageNewsPage clicksavebutton()
 {
-	enternews.sendKeys(newsfield);	
-}
-public void clicksavebutton()
-{
-    save.click();	
+    save.click();
+	return this;	
 }
 public boolean isAlertload()
 {
